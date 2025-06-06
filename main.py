@@ -4,11 +4,13 @@
 
 #project imports
 import pygame
+import os
 pygame.init()
 
 # Gameobject and scripts imports
 from Assets.GameObjects.player_object import PlayerController, PlayerType
 from Assets.Scripts.group_manager import GroupManagerController
+from Assets.GameObjects.ball_object import Ball
 
 # the main game class
 class GameWindow:
@@ -20,7 +22,9 @@ class GameWindow:
         self.group_manager = GroupManagerController(self.screen)
         self.player1 = PlayerController((45, 250), (240, 170, 174), 9, (70, 560), self.screen, PlayerType.PLAYER_1)
         self.player2 = PlayerController((45, 250), (138, 185, 235), 9, (1845, 560), self.screen, PlayerType.PLAYER_2)
+        self.ball = Ball((50, 50), os.path.join(os.getcwd() + "/Assets/Images/", "Ball.png"), 4, (1150, 560), self.screen)
         self.group_manager.add_group("Player Group", self.player1, self.player2)
+        self.group_manager.add_group("Ball Group",  self.ball)
     
     # Starts and runs the main game loop
     def run_game(self):
