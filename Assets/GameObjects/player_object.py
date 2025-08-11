@@ -26,6 +26,7 @@ class PlayerController(Sprite):
         self.game_area = game_screen.get_rect()
         self.player_value = player_type
     
+    # This is the players update loop, it handles and controlls what happens to the player
     def update(self):
         # Moving the player
         pressed_keys = pygame.key.get_pressed()
