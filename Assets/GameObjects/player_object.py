@@ -34,5 +34,4 @@ class PlayerController(Sprite):
             self.rect.move_ip(0, -self.speed)
         elif pressed_keys[pygame.K_DOWN] and self.player_value == PlayerType.PLAYER_2 or pressed_keys[pygame.K_s] and self.player_value == PlayerType.PLAYER_1:
             self.rect.move_ip(0, self.speed)
-        
         self.rect.clamp_ip(self.game_area)
